@@ -11,13 +11,14 @@ import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     List<String> listData;
+
     public MyAdapter(List<String> list) {
         listData = list;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.listitem, parent,false));
+        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.listitem, parent, false));
     }
 
     @Override

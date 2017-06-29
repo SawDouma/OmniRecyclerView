@@ -10,8 +10,10 @@ import java.util.ArrayList;
  * Created by Saw on 2017/6/29.
  */
 class OmniRecyclerAdapter extends android.support.v7.widget.RecyclerView.Adapter {
+    private static final int CONTENT_TYPE = 0;
     private static final int HEADER_TYPE = -1;
     private static final int FOOTER_TYPE = -2;
+
     private RecyclerView.Adapter mAdapter;
     private ArrayList<View> mHeaderViewInfos = new ArrayList<>();
     private ArrayList<View> mFooterViewInfos = new ArrayList<>();
@@ -67,6 +69,7 @@ class OmniRecyclerAdapter extends android.support.v7.widget.RecyclerView.Adapter
             adapterCount = mAdapter.getItemCount();
             if (adapterCount > adjPosition) {
                 mAdapter.getItemViewType(adjPosition);
+                return CONTENT_TYPE;
             }
         }
 
