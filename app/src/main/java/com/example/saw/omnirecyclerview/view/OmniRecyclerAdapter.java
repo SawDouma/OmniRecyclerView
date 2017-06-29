@@ -17,6 +17,8 @@ class OmniRecyclerAdapter extends android.support.v7.widget.RecyclerView.Adapter
     private RecyclerView.Adapter mAdapter;
     private ArrayList<View> mHeaderViewInfos = new ArrayList<>();
     private ArrayList<View> mFooterViewInfos = new ArrayList<>();
+    private int mHeaderViewPosition = 0;
+    private int mFooterViewPosition = 0;
 
     public OmniRecyclerAdapter(ArrayList<View> headerViewInfos, ArrayList<View> footerViewInfos, RecyclerView.Adapter adapter) {
         mAdapter = adapter;
@@ -36,9 +38,9 @@ class OmniRecyclerAdapter extends android.support.v7.widget.RecyclerView.Adapter
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == HEADER_TYPE) {
-            return new HeaderViewHolder(mHeaderViewInfos.get(0));
+            return new HeaderViewHolder(mHeaderViewInfos.get(mHeaderViewPosition++));
         } else if (viewType == FOOTER_TYPE) {
-            return new FooterViewHolder(mFooterViewInfos.get(0));
+            return new FooterViewHolder(mFooterViewInfos.get(mFooterViewPosition++));
         }
         return mAdapter.onCreateViewHolder(parent, viewType);
     }

@@ -19,13 +19,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         omniRecyclerView = (OmniRecyclerView) findViewById(R.id.omniRecyclerView);
-        TextView headerView = new TextView(this);
         ViewGroup.LayoutParams layoutParams = new ActionBar.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        headerView.setLayoutParams(layoutParams);
-        headerView.setText("HeaderView");
-
-        omniRecyclerView.addHeaderView(headerView);
+        for (int i=0; i< 3; i++) {
+            TextView headerView = new TextView(this);
+            headerView.setLayoutParams(layoutParams);
+            headerView.setText("HeaderView " + i);
+            omniRecyclerView.addHeaderView(headerView);
+        }
         TextView footerView = new TextView(this);
         layoutParams = new ActionBar.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
